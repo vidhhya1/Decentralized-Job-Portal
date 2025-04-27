@@ -1,0 +1,23 @@
+{
+  "name": "job-chat-server",
+  "version": "1.0.0",
+  "description": "Real-time chat server for Decentralized Job Portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket.io",
+    "chat",
+    "dapp",
+    "real-time"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}

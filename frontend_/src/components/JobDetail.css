@@ -1,0 +1,568 @@
+/* src/components/JobDetail.css */
+
+/* --- General Container & Layout --- */
+.job-detail-container {
+  max-width: 850px; /* Increased width for better layout */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9; /* Light background for the page */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.job-detail-container h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+/* --- Job Details Card --- */
+.job-detail-card {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  border-left: 5px solid #ccc; /* Default border color, dynamically set by style prop */
+  transition: border-left-color 0.3s ease;
+}
+
+.job-detail-card p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.job-detail-card p strong {
+  color: #333;
+  margin-right: 5px;
+}
+
+.job-description-text {
+  background-color: #fdfdfd;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  white-space: pre-wrap; /* Preserve formatting */
+  word-wrap: break-word; /* Prevent overflow */
+}
+
+/* --- Meta Info Badges --- */
+.job-meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.job-meta-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px; /* Pill shape */
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #bdc3c7; /* Default grey */
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  cursor: default; /* Indicate non-interactive */
+}
+
+.job-meta-badge:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Status specific badge colors */
+.job-meta-badge.status-open { background-color: #2ecc71; } /* Green */
+.job-meta-badge.status-assigned { background-color: #f39c12; } /* Orange */
+.job-meta-badge.status-completed { background-color: #9b59b6; } /* Purple */
+.job-meta-badge.status-refunded { background-color: #e74c3c; } /* Red */
+.job-meta-badge.status-disputed { background-color: #c0392b; } /* Darker Red */
+.job-meta-badge.status-unknown { background-color: #7f8c8d; } /* Grey */
+
+/* Budget badge */
+.job-meta-badge.budget { background-color: #3498db; } /* Blue */
+
+/* Escrow badge */
+.job-meta-badge.escrow-yes { background-color: #1abc9c; } /* Teal */
+.job-meta-badge.escrow-no { background-color: #95a5a6; } /* Grey */
+
+/* --- Action Buttons --- */
+.job-actions {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between buttons */
+  align-items: center; /* Align items vertically */
+}
+
+.action-button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.action-button:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Specific button colors */
+.action-button.apply { background-color: #27ae60; } /* Green */
+.action-button.escrow { background-color: #2980b9; } /* Blue */
+.action-button.release { background-color: #8e44ad; } /* Purple */
+.action-button.refund { background-color: #d35400; } /* Orange */
+.action-button.dispute { background-color: #c0392b; } /* Red */
+.action-button.resolve { background-color: #34495e; } /* Dark Blue/Grey */
+.action-button.resolve.award { background-color: #16a085; } /* Teal */
+.action-button.resolve.refund { background-color: #f39c12; } /* Orange */
+
+/* Hover states */
+.action-button.apply:hover:not(:disabled) { background-color: #2ecc71; }
+.action-button.escrow:hover:not(:disabled) { background-color: #3498db; }
+.action-button.release:hover:not(:disabled) { background-color: #9b59b6; }
+.action-button.refund:hover:not(:disabled) { background-color: #e67e22; }
+.action-button.dispute:hover:not(:disabled) { background-color: #e74c3c; }
+.action-button.resolve:hover:not(:disabled) { background-color: #2c3e50; }
+.action-button.resolve.award:hover:not(:disabled) { background-color: #1abc9c; }
+.action-button.resolve.refund:hover:not(:disabled) { background-color: #e67e22; }
+
+/* --- Dispute Info & Admin Actions --- */
+.dispute-info-area {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #fff8e1; /* Light yellow */
+  border: 1px solid #ffe082; /* Yellow border */
+  border-radius: 5px;
+  width: 100%; /* Take full width in the actions container */
+}
+
+.dispute-info {
+  color: #bf360c; /* Dark orange/red text */
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.admin-resolve-actions {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #ccc;
+}
+
+.admin-resolve-actions h4 {
+  margin-bottom: 0.8rem;
+  color:rgb(60, 123, 196);
+  font-size: 1rem;
+}
+
+.admin-resolve-actions .action-button {
+  margin-right: 0.8rem; /* Space between admin buttons */
+}
+
+/* --- Status Messages (Error/Success) --- */
+@keyframes fadeInSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.action-error,
+.action-success {
+  padding: 0.8rem 1rem;
+  margin-top: 1.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+  animation: fadeInSlideDown 0.4s ease forwards; /* Animation */
+  width: 100%; /* Take full width */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.action-error {
+  background-color: #ffebee; /* Light red */
+  color: #c62828; /* Dark red */
+  border: 1px solid #ef9a9a; /* Red border */
+}
+
+.action-success {
+  background-color: #e8f5e9; /* Light green */
+  color: #2e7d32; /* Dark green */
+  border: 1px solid #a5d6a7; /* Green border */
+}
+
+/* --- Dispute Chat Interface --- */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dispute-chat-box {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  animation: slideInFromBottom 0.5s ease-out forwards; /* Animation */
+}
+
+.dispute-chat-box h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #c0392b; /* Red to indicate dispute context */
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.chat-messages-area {
+  max-height: 300px; /* Limit height */
+  overflow-y: auto; /* Enable scrolling */
+  border: 1px solid #eee;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fdfdfd;
+  border-radius: 4px;
+}
+
+.chat-message {
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px dotted #eee;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.chat-message:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.chat-message.system {
+  font-style: italic;
+  color: #777;
+}
+
+.chat-message strong {
+  color: #3498db; /* Blue for sender */
+}
+
+.chat-message.system strong {
+  color: #777; /* System sender color */
+}
+
+.chat-timestamp {
+  font-size: 0.75rem;
+  color: #999;
+  margin-left: 0.5rem;
+  float: right; /* Align timestamp to the right */
+}
+
+.chat-input-area {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center; /* Align textarea and button */
+  margin-bottom: 1rem;
+}
+
+.chat-input-area textarea {
+  flex-grow: 1; /* Take available space */
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  resize: vertical; /* Allow vertical resize */
+  min-height: 40px; /* Minimum height */
+}
+
+.chat-input-area button {
+  padding: 0.6rem 1rem;
+  background-color: #3498db; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.chat-input-area button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.chat-input-area button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.close-chat-button {
+  display: block; /* Make it a block element */
+  margin: 1rem auto 0 auto; /* Center the button */
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c; /* Red */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+}
+
+.close-chat-button:hover {
+  background-color: #c0392b;
+}
+
+.chat-backend-note {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+
+/* --- General Info/Loading Messages --- */
+.loading-message,
+.info-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* --- Back Button --- */
+.back-button {
+  display: inline-block; /* Allows margin auto for center if needed, or float */
+  margin-top: 2rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #7f8c8d; /* Grey */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #95a5a6;
+}
+
+/* src/components/JobDetail.css */
+
+/* --- Keep previous styles for: --- */
+/* .job-detail-container (base page style, adjust max-width if needed) */
+/* h2 */
+/* .job-detail-card (base card style) */
+/* .job-meta-info, .job-meta-badge (and status/escrow/budget colors) */
+/* .job-description-text */
+/* .action-button (base and specific colors/hovers/disabled) */
+/* .action-error, .action-success (including keyframes) */
+/* .loading-message, .info-message */
+/* .back-button */
+/* --------------------------------- */
+
+/* *** NEW: Layout Styles *** */
+.job-detail-layout-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 2rem; /* Space between columns */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.job-details-column {
+  flex: 2; /* Takes roughly 2/3rds of the space */
+  min-width: 400px; /* Minimum width before wrapping */
+}
+
+.chat-column {
+  flex: 1; /* Takes roughly 1/3rd of the space */
+  min-width: 300px; /* Minimum width */
+  position: sticky; /* Make chat sticky */
+  top: 2rem; /* Adjust sticky top position as needed */
+  /* Ensure it doesn't overlap header if you have a sticky header */
+}
+
+/* Adjust container if layout wraps */
+@media (max-width: 768px) {
+  .job-details-column,
+  .chat-column {
+    flex: 1 1 100%; /* Each takes full width when wrapped */
+    min-width: unset;
+    position: relative; /* Disable sticky when wrapped */
+    top: unset;
+  }
+  .chat-column {
+     margin-top: 2rem; /* Add space when chat wraps below */
+  }
+}
+
+
+/* *** NEW: Dispute Alert Box *** */
+.dispute-alert-box {
+    background-color: #fff3cd; /* Light yellow */
+    color: #856404; /* Dark yellow/brown */
+    border: 1px solid #ffeeba;
+    border-left: 5px solid #ffc107; /* Amber border */
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.dispute-alert-box strong {
+    color: #664d03;
+}
+
+/* Optional: Pulse animation for disputed badge */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); } /* dc3545 */
+  70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+.job-meta-badge.status-disputed.disputed-pulse {
+  background-color: #dc3545; /* Ensure explicit color */
+  animation: pulse 1.5s infinite;
+}
+
+
+/* *** UPDATED/RENAMED: Chat Box Styles *** */
+.live-chat-box {
+  /* Removed margin-top, handled by column gap */
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  /* Removed animation - now persistent */
+  height: calc(100vh - 4rem - 4rem); /* Example: Full viewport height minus top offset and some bottom padding */
+  max-height: 70vh; /* Or a max height */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+}
+
+.live-chat-box h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #555; /* Less alarming color for normal chat */
+  text-align: center;
+  font-size: 1.1rem; /* Slightly smaller */
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+/* Keep specific dispute title color */
+.live-chat-box h3:contains("Dispute") { /* Note: :contains is illustrative, might need JS/class */
+    color: #c0392b; /* Red for dispute title */
+}
+
+.chat-messages-area {
+  /* max-height: 300px; /* Remove fixed max-height */
+  flex-grow: 1; /* Allow message area to fill available space */
+  overflow-y: auto; /* Enable scrolling */
+  border: 1px solid #eee;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fdfdfd;
+  border-radius: 4px;
+}
+
+.chat-message {
+  /* Styles unchanged */
+   margin-bottom: 0.8rem;
+   padding-bottom: 0.8rem;
+   border-bottom: 1px dotted #eee;
+   line-height: 1.5;
+   font-size: 0.9rem;
+}
+.chat-message:last-child { border-bottom: none; margin-bottom: 0; }
+.chat-message.system { font-style: italic; color: #777; }
+.chat-message strong { color: #3498db; }
+.chat-message.system strong { color: #777; }
+.chat-timestamp { font-size: 0.75rem; color: #999; margin-left: 0.5rem; float: right; }
+
+
+.chat-input-area {
+  /* Styles unchanged */
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0; /* Prevent input from shrinking */
+}
+.chat-input-area textarea {
+  flex-grow: 1;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 50px; /* Slightly taller */
+}
+.chat-input-area button {
+  padding: 0.6rem 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.chat-input-area button:hover:not(:disabled) { background-color: #2980b9; }
+.chat-input-area button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+
+.chat-backend-note {
+  /* Styles unchanged */
+  font-size: 0.8rem; color: #888; text-align: center; margin-top: auto; /* Push note to bottom */ padding-top: 0.5rem; flex-shrink: 0;
+}
+
+/* Chat placeholder style */
+.chat-placeholder {
+    padding: 2rem;
+    text-align: center;
+    color: #777;
+    border: 2px dashed #eee;
+    border-radius: 8px;
+    height: 300px; /* Give it some height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for admin controls potentially outside chat box */
+.admin-resolve-actions-inline {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #eee; /* Separate visually */
+}
+.admin-resolve-actions-inline h4 { margin-bottom: 0.8rem; font-size: 1rem;}
+.admin-resolve-actions-inline .action-button { margin-right: 0.8rem; }

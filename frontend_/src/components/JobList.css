@@ -1,0 +1,175 @@
+/* src/components/JobList.css */
+
+.job-list-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+}
+
+.job-list-container h2 {
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+/* --- Job List Layout --- */
+.job-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  /* Create 1 or 2 columns depending on width */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem; /* Space between cards */
+}
+
+/* --- Individual Job Item Card --- */
+.job-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #ccc; /* Default color, overridden by style prop */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+}
+
+.job-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.job-item h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 1.25rem; /* Slightly larger title */
+}
+
+.job-item h3 a {
+  text-decoration: none;
+  color: #0056b3; /* Darker blue */
+  transition: color 0.2s ease;
+}
+
+.job-item h3 a:hover {
+  color: #003875;
+  text-decoration: underline;
+}
+
+/* --- Meta Info Badges (Reuse from other CSS files if possible) --- */
+.job-meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.job-meta-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #bdc3c7;
+}
+
+/* Status specific badge colors */
+.job-meta-badge.status-open { background-color: #2ecc71; }
+.job-meta-badge.status-assigned { background-color: #f39c12; }
+.job-meta-badge.status-completed { background-color: #9b59b6; }
+.job-meta-badge.status-refunded { background-color: #e74c3c; }
+.job-meta-badge.status-disputed { background-color: #dc3545; }
+.job-meta-badge.status-unknown { background-color: #7f8c8d; }
+.job-meta-badge.budget { background-color: #3498db; }
+.job-meta-badge.escrow-yes { background-color: #1abc9c; }
+.job-meta-badge.escrow-no { background-color: #95a5a6; }
+
+/* --- Employer Info --- */
+.employer-info {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+.employer-info strong {
+    color: #333;
+    margin-right: 4px;
+}
+
+
+/* --- Action Area within Job Item --- */
+.job-item-actions {
+    margin-top: auto; /* Push actions to the bottom of the card */
+    padding-top: 1rem;
+    border-top: 1px solid #f1f1f1;
+    display: flex;
+    align-items: center; /* Align button and status message */
+    gap: 1rem;
+}
+
+/* --- Apply Button --- */
+.apply-button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #28a745; /* Green */
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.apply-button:hover:not(:disabled) {
+  background-color: #218838; /* Darker green */
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.apply-button:disabled {
+  background-color: #6c757d;
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* --- Action Status Message (within item actions) --- */
+/* Reuse animation if defined globally */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.action-status {
+  /* margin-top: 0.8rem; */ /* Removed top margin, rely on gap */
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease forwards;
+}
+.action-status.loading { background-color: #e9ecef; color: #495057; }
+.action-status.success { background-color: #d4edda; color: #155724; }
+.action-status.error { background-color: #f8d7da; color: #721c24; }
+
+/* --- Simple Status Note --- */
+.status-note {
+    margin-top: auto; /* Push to bottom like actions */
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+
+/* --- General Info/Loading Message --- */
+.info-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1.1rem;
+  color: #6c757d;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px dashed #dee2e6;
+}

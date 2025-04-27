@@ -1,0 +1,77 @@
+/* src/components/FreelancerDashboard.css */
+
+/* Inherit base dashboard styles */
+.dashboard-container.freelancer-dashboard {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.freelancer-dashboard h2 {
+  text-align: center;
+  color: #34495e;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ecf0f1;
+  padding-bottom: 15px;
+}
+
+.freelancer-dashboard .info-message {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 1.1em;
+  padding: 20px;
+}
+
+.freelancer-dashboard .dashboard-job-list {
+  list-style: none;
+  padding: 0;
+}
+
+.freelancer-dashboard .dashboard-job-item {
+  border: 1px solid #e0e0e0;
+  /* border-left-color is set dynamically via inline style */
+  border-left-width: 6px;
+  border-left-style: solid;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+}
+
+.freelancer-dashboard .dashboard-job-item h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.freelancer-dashboard .dashboard-job-item h3 a {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.freelancer-dashboard .dashboard-job-item h3 a:hover {
+  color: #3498db;
+}
+
+.freelancer-dashboard .dashboard-job-item p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.freelancer-dashboard .status-indicator {
+  font-style: italic;
+  color: #7f8c8d;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #ecf0f1;
+}
+
+.freelancer-dashboard .status-indicator.success {
+  color: #27ae60; /* Green */
+  font-weight: bold;
+}
