@@ -3,7 +3,7 @@
 
 A trustless job marketplace built on blockchain technology where employers can post jobs with escrowed payments, and freelancers can apply for jobs. Smart contracts automatically handle fund management and job completion processes.
 
-##Team Members
+## Team Members
   - Kadirappagari Brahmisree -230001035
   - Katepalli Gayathri- 230001038
   - Raunak Anand - 230001067
