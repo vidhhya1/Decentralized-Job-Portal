@@ -1,6 +1,5 @@
 # Decentralized Job Board
 
-![Project Banner](path/to/banner-image.png)
 
 A trustless job marketplace built on blockchain technology where employers can post jobs with escrowed payments, and freelancers can apply for jobs. Smart contracts automatically handle fund management and job completion processes, release payment upon approval, and handle disputes.
 
@@ -40,7 +39,6 @@ The Decentralized Job Board is a blockchain-based platform that creates a trustl
 
 The Decentralized Job Board follows a classic decentralized application (DApp) architecture:
 
-![Architecture Diagram](path/to/architecture-diagram.png)
 
 1. **Frontend Layer**: React-based user interface that interacts with the blockchain through web3.js
 2. **Blockchain Layer**: Ethereum smart contracts that handle the business logic and enforce rules
