@@ -144,7 +144,6 @@ cd ..
 2. Click "Add Project" and select the `truffle-config.js` file from your project
 3. Save the workspace
 
-![Ganache Setup](path/to/ganache-setup.png)
 
 #### Option 2: Ganache CLI
 
@@ -165,14 +164,11 @@ npx ganache-cli --port 8545 --networkId 1337 --deterministic
      - Chain ID: 1337
      - Currency Symbol: ETH
 
-![MetaMask Network Setup](path/to/metamask-network-setup.png)
-
 4. Import an account from Ganache:
    - Copy the private key of one of the accounts in Ganache
    - In MetaMask, click on the account icon > Import Account
    - Paste the private key and click "Import"
 
-![MetaMask Account Import](path/to/metamask-account-import.png)
 
 ### 5. Compile and Deploy Smart Contracts
 
@@ -191,7 +187,6 @@ npm start
 
 The application should now be running at [http://localhost:3000](http://localhost:3000).
 
-![Application Startup](path/to/application-startup.png)
 
 ### 7. Start the Job Description Server (Optional)
 
