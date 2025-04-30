@@ -86,15 +86,14 @@ Before you begin, ensure you have the following installed:
 ## Project Structure
 
 ```
-decentralized-job-board/
+decentralized-job-board
 ├── contracts/              # Smart contracts
 │   ├── JobBoard.sol        # Main contract
 │   └── Migrations.sol      # Truffle migrations
 ├── migrations/             # Deployment scripts
-│   ├── 1_initial_migration.js
-│   └── 2_deploy_contracts.js
+│   |── 2_deploy_contracts.js
 ├── test/                   # Contract tests
-│   └── JobBoard.test.js    # Test cases for JobBoard contract
+│   └── DecentralizedJobBoard.test.js    # Test cases for JobBoard contract
 ├── client/                 # React frontend
 │   ├── public/             # Static files
 │   ├── src/                # Source files
