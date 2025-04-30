@@ -1,7 +1,7 @@
 
 # Decentralized Job Board
 
-A trustless job marketplace built on blockchain technology where employers can post jobs with escrowed payments, and freelancers can apply for jobs. Smart contracts automatically handle fund management and job completion processes.
+A trustless job marketplace built on blockchain technology where employers can post jobs with escrowed payments, and freelancers can apply for jobs. Smart contracts automatically handle fund management and job completion processes ,Release payment upon approval ,Handle disputes. 
 
 ## Team Members
   - Kadirappagari Brahmisree -230001035
@@ -22,7 +22,7 @@ A trustless job marketplace built on blockchain technology where employers can p
 - **Smart Contracts**: Solidity
 - **Development Framework**: Truffle
 - **Testing Environment**: Ganache
-- **Frontend**: React with ethers.js
+- **Frontend**: React with web3.js
 - **Wallet Connection**: MetaMask
 
 ## Prerequisites
@@ -148,7 +148,7 @@ To run the smart contract tests:
 truffle test
 ```
 
-## Local Job Description Server (Optional)
+## Local Job Description Server 
 
 For storing detailed job descriptions off-chain:
 
@@ -185,7 +185,7 @@ The server will be available at [http://localhost:3001](http://localhost:3001).
 - Ensure you have enough ETH in your account for gas costs
 - Verify that you're using the correct account for the operation
 
-## Gas Optimization Tips
+## Gas Optimization 
 
 - Batch operations when possible to reduce gas costs
 - Use appropriate data types (uint256 for ETH values)
