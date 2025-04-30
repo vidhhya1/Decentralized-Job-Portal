@@ -181,7 +181,6 @@ truffle compile              # Compile the contracts
 truffle migrate --reset      # Deploy to Ganache
 ```
 
-![Contract Deployment](path/to/contract-deployment.png)
 
 ### 6. Start the Frontend
 
@@ -225,13 +224,8 @@ The server will be available at [http://localhost:3001](http://localhost:3001).
      - Title: A concise job title
      - Description: Detailed job requirements
      - Budget: Amount in ETH you're willing to pay
-
-   ![Post Job Form](path/to/post-job-form.png)
-
-   - Click "Post Job" and confirm the transaction in MetaMask
-   - Your job will now be visible on the job board
-
-   ![Confirm Job Posting](path/to/confirm-job-posting.png)
+     - Click "Post Job" and confirm the transaction in MetaMask
+     - Your job will now be visible on the job board
 
 2. **Escrow Funds for a Job**
    - Navigate to "My Posted Jobs" page
@@ -239,15 +233,12 @@ The server will be available at [http://localhost:3001](http://localhost:3001).
    - Click "Escrow Funds" button
    - Confirm the transaction in MetaMask to lock the funds in the contract
 
-   ![Escrow Funds](path/to/escrow-funds.png)
-
 3. **Review Applications and Release Payment**
    - Navigate to "My Posted Jobs" page
    - Find the job with an assigned freelancer
    - Once work is completed (agreed upon off-chain), click "Release Payment"
    - Confirm the transaction in MetaMask to transfer funds to the freelancer
 
-   ![Release Payment](path/to/release-payment.png)
 
 #### As a Freelancer
 
@@ -256,41 +247,43 @@ The server will be available at [http://localhost:3001](http://localhost:3001).
    - Browse through the list of available jobs
    - Click on any job to view its details
 
-   ![Job Board](path/to/job-board.png)
-
 2. **Apply for a Job**
    - On the job details page, click "Apply for Job"
    - Confirm the transaction in MetaMask
    - Wait for the employer to review and accept your application
-
-   ![Apply for Job](path/to/apply-for-job.png)
 
 3. **Receive Payment**
    - Complete the work as agreed upon off-chain
    - Once the employer releases payment, funds will automatically be transferred to your wallet
    - You can track payment status on the "My Jobs" page
 
-   ![Payment Received](path/to/payment-received.png)
 
 ## Frontend Screenshots
 
-### Home Page
-![Home Page](path/to/home-page.png)
+### Welcome Page
+![Home Page](path/to/Welcome.jpg) 
+
+ ### Entering as Employer 
+ ![Home Page](path/to/AS Employer.jpg) 
 
 ### Job Board
-![Job Board](path/to/job-board-full.png)
+![Job Board](path/to/MY JOBS.png) 
+
+ ### Post Job Form
+![Post Job Form](path/to/Post Job.jpg)
 
 ### Job Details
-![Job Details](path/to/job-details.png)
+![Job Details](path/to/job-details.jpg)
 
-### Post Job Form
-![Post Job Form](path/to/post-job-form-full.png)
+
 
 ### My Jobs Dashboard
 ![My Jobs Dashboard](path/to/my-jobs-dashboard.png)
 
 ### Employer Dashboard
-![Employer Dashboard](path/to/employer-dashboard.png)
+![Employer Dashboard](path/to/employer-dashboard.png) 
+
+ ### 
 
 ## Running Tests
 
